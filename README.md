@@ -1,1 +1,1 @@
-# 2018-2019-TIC-es-Info
+# Ide kerulnek a XB-s TIC es Info projectek
