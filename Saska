@@ -1,0 +1,54 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    ifstream szocske("input.txt", ifstream::in);
+
+    if(szocske){
+
+        int a, b;
+        int aktualiskocka=0;
+        short int legkisebb = 512;
+        int sum = 0;
+
+        szocske >> a;
+        szocske >> b;
+
+        int negyzetracs[a][b];
+
+        for(int i=0; i<a; i++){
+
+            for(int j=0; j<b; j++){
+                szocske >> negyzetracs[i][j] ;
+            }
+
+        }
+
+        sum = negyzetracs[0][0];
+
+        for(int i=0; i<a; i++){
+
+            for(int j=0; j<b; j++){
+
+                if(j==aktualiskocka)
+                    continue;
+
+
+                if(legkisebb>negyzetracs[i][j] + negyzetracs[i+1][j]){
+                    legkisebb = negyzetracs[i][j] + negyzetracs[i+1][j];
+                    aktualiskocka = j;
+            }
+            }
+
+            sum = sum + legkisebb;
+        }
+        cout << "a leheto legkisebb osszeg = " << sum << endl;
+
+
+    }
+
+    return 0;
+}
