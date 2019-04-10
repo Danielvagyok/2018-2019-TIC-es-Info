@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, k;
+
+    cin >> n;
+
+    bool primszamok[n] ;
+
+    primszamok[1] = 0;
+
+    for(int i = 2 ; i <= n ; i++)
+    {
+        primszamok[i] = 1;
+    }
+
+    for(int i = 2 ; i <= n ; i++)
+    {
+        if(primszamok[i] == 1){
+            for(int j = i + i ; j <= n ; j += i){
+                primszamok[j] = 0;
+            }
+        }
+        cout << i << "\t" << primszamok[i] << endl;
+    }
+
+
+
+    return 0;
+}
